@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Video Services — Rate Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #12192E;
+    --navy-2: #1B2440;
+    --gold: #C9963B;
+    --gold-light: #E8C77E;
+    --cream: #FAF7F0;
+    --paper: #FFFFFF;
+    --ink: #1D2130;
+    --ink-soft: #565B6E;
+    --line: #E4E0D6;
+    --green: #4E7A5E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;}
+
+  .wrap{max-width:760px;margin:0 auto;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);
+    color:var(--cream);
+    padding:52px 24px 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:220px;height:220px;
+    border:1px solid rgba(201,150,59,0.25);
+    border-radius:50%;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:20px; top:40px;
+    width:140px;height:140px;
+    border:1px solid rgba(201,150,59,0.18);
+    border-radius:50%;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    margin-bottom:18px;
+    position:relative;
+    z-index:1;
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(34px,8vw,50px);
+    line-height:1.05;
+    margin:0 0 14px;
+    letter-spacing:-0.01em;
+    position:relative;
+    z-index:1;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--gold-light);
+  }
+  .hero p.sub{
+    font-size:16px;
+    line-height:1.55;
+    color:#C9CCDA;
+    max-width:52ch;
+    margin:0;
+    position:relative;
+    z-index:1;
+  }
+  .hero-tags{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:26px;
+    position:relative;
+    z-index:1;
+  }
+  .tag{
+    font-size:12.5px;
+    padding:7px 13px;
+    border:1px solid rgba(232,199,126,0.35);
+    border-radius:100px;
+    color:var(--gold-light);
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* SECTION LABELS */
+  .section{padding:44px 24px;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:6px;
+  }
+  .num{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--gold);
+    font-size:13px;
+    font-weight:600;
+  }
+  .section h2{
+    font-family:'Fraunces',serif;
+    font-size:26px;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+  }
+  .section .lede{
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.6;
+    margin:10px 0 28px;
+    max-width:60ch;
+  }
+
+  /* HOW IT WORKS */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+  }
+  .step{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 14px;
+  }
+  .step .n{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--gold);
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .step p{
+    margin:0;
+    font-size:13.5px;
+    line-height:1.4;
+    color:var(--ink);
+    font-weight:500;
+  }
+
+  /* TICKET / PRICE CARDS */
+  .tiers{display:flex;flex-direction:column;gap:18px;}
+  .ticket{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr auto;
+  }
+  .ticket.featured{
+    border-color:var(--gold);
+    box-shadow:0 8px 24px -8px rgba(201,150,59,0.35);
+  }
+  .ticket-main{padding:22px 20px;}
+  .ticket-price{
+    background:var(--navy);
+    color:var(--cream);
+    padding:22px 22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-end;
+    text-align:right;
+    min-width:150px;
+    position:relative;
+  }
+  .ticket-price::before{
+    content:"";
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:0;
+    border-left:2px dashed rgba(250,247,240,0.25);
+  }
+  .tier-name{
+    font-family:'Fraunces',serif;
+    font-size:19px;
+    font-weight:600;
+    margin:0 0 4px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .badge{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    background:var(--gold);
+    color:var(--navy);
+    padding:3px 8px;
+    border-radius:100px;
+    font-weight:600;
+    letter-spacing:0.03em;
+  }
+  .tier-desc{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin:0 0 12px;
+    line-height:1.5;
+  }
+  .tier-includes{
+    list-style:none;
+    margin:0;padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .tier-includes li{
+    font-size:13px;
+    color:var(--ink);
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+  }
+  .tier-includes li::before{
+    content:"✓";
+    color:var(--green);
+    font-weight:700;
+    flex-shrink:0;
+  }
+  .price-amount{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:22px;
+    font-weight:600;
+    color:var(--gold-light);
+    line-height:1.15;
+  }
+  .price-unit{
+    font-size:11px;
+    color:#9BA0B5;
+    margin-top:4px;
+  }
+
+  /* ADDONS TABLE */
+  .addon-table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+  }
+  .addon-table tr{border-bottom:1px solid var(--line);}
+  .addon-table tr:last-child{border-bottom:none;}
+  .addon-table td{
+    padding:14px 16px;
+    font-size:13.5px;
+    vertical-align:top;
+  }
+  .addon-table td:first-child{
+    font-weight:600;
+    color:var(--ink);
+  }
+  .addon-table td:last-child{
+    text-align:right;
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--navy);
+    font-weight:600;
+    white-space:nowrap;
+  }
+
+  /* PLATFORM CARDS */
+  .platform-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+  .pcard{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:18px 14px;
+    text-align:center;
+  }
+  .pcard .picon{
+    width:34px;height:34px;
+    margin:0 auto 10px;
+    border-radius:8px;
+    background:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-light);
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:15px;
+  }
+  .pcard h3{
+    font-size:13.5px;
+    margin:0 0 6px;
+    font-weight:700;
+  }
+  .pcard .prange{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  /* NOTE STRIP */
+  .note{
+    background:#F3ECDC;
+    border:1px solid #E4D3A8;
+    border-radius:12px;
+    padding:16px 18px;
+    font-size:13.5px;
+    line-height:1.55;
+    color:#5A4A20;
+    margin-top:22px;
+  }
+  .note strong{color:#3E3110;}
+
+  /* FOOTER / CTA */
+  .cta{
+    background:linear-gradient(180deg,var(--navy-2) 0%, var(--navy) 100%);
+    color:var(--cream);
+    padding:52px 24px 44px;
+    text-align:center;
+  }
+  .cta h2{
+    font-family:'Fraunces',serif;
+    font-size:28px;
+    font-weight:600;
+    margin:0 0 10px;
+  }
+  .cta p{
+    color:#C9CCDA;
+    font-size:14.5px;
+    max-width:44ch;
+    margin:0 auto 26px;
+    line-height:1.6;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--gold);
+    color:var(--navy);
+    font-weight:700;
+    font-size:14.5px;
+    padding:14px 26px;
+    border-radius:100px;
+    text-decoration:none;
+  }
+  .foot-meta{
+    margin-top:34px;
+    padding-top:22px;
+    border-top:1px solid rgba(232,199,126,0.2);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:#8B90A5;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  @media (max-width:600px){
+    .steps{grid-template-columns:1fr 1fr;}
+    .ticket{grid-template-columns:1fr;}
+    .ticket-price{
+      align-items:flex-start;
+      text-align:left;
+      flex-direction:row;
+      justify-content:space-between;
+    }
+    .ticket-price::before{display:none;border-top:2px dashed rgba(250,247,240,0.25);}
+    .platform-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Rate Card · Valid 2026</div>
+    <h1>AI Video<br><em>Production</em> Services</h1>
+    <p class="sub">Custom AI-generated videos for ads, product promos, personal content and campaigns — scripted, generated, edited and delivered ready to post.</p>
+    <div class="hero-tags">
+      <span class="tag">Any platform</span>
+      <span class="tag">2 revisions incl.</span>
+      <span class="tag">Fast turnaround</span>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section">
+    <div class="section-head"><span class="num">01</span><h2>How it works</h2></div>
+    <p class="lede">Simple, straightforward process from brief to delivery.</p>
+    <div class="steps">
+      <div class="step"><div class="n">Step 1</div><p>Send your brief — what the video is for, and any reference</p></div>
+      <div class="step"><div class="n">Step 2</div><p>Pay 50% deposit to begin production</p></div>
+      <div class="step"><div class="n">Step 3</div><p>Get a preview draft within your agreed timeline</p></div>
+      <div class="step"><div class="n">Step 4</div><p>Approve, pay balance, receive final files</p></div>
+    </div>
+  </div>
+
+  <!-- PRICING TIERS -->
+  <div class="section">
+    <div class="section-head"><span class="num">02</span><h2>Pricing by package</h2></div>
+    <p class="lede">Priced by production complexity, not just length — a talking, voiced clip costs more to generate and refine than a simple single-shot scene.</p>
+
+    <div class="tiers">
+      <div class="ticket">
+        <div class="ticket-main">
+          <p class="tier-name">Simple</p>
+          <p class="tier-desc">One shot, 10–15 seconds, no dialogue. Good for quick promos and status content.</p>
+          <ul class="tier-includes">
+            <li>2–3 generation attempts</li>
+            <li>Basic edit &amp; music</li>
+            <li>1 revision round</li>
+          </ul>
+        </div>
+        <div class="ticket-price">
+          <div class="price-amount">₦8,000 – ₦15,000</div>
+          <div class="price-unit">per video</div>
+        </div>
+      </div>
+
+      <div class="ticket featured">
+        <div class="ticket-main">
+          <p class="tier-name">Standard <span class="badge">Most booked</span></p>
+          <p class="tier-desc">15–30 seconds, multiple shots, transitions and effects, synced music.</p>
+          <ul class="tier-includes">
+            <li>Multi-shot sequence</li>
+            <li>Sound design &amp; captions</li>
+            <li>2 revision rounds</li>
+          </ul>
+        </div>
+        <div class="ticket-price">
+          <div class="price-amount">₦15,000 – ₦30,000</div>
+          <div class="price-unit">per video</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-main">
+          <p class="tier-name">Premium</p>
+          <p class="tier-desc">30–60 seconds, cinematic quality, with spoken dialogue, voice and lip-sync.</p>
+          <ul class="tier-includes">
+            <li>AI voice/dialogue generation</li>
+            <li>Lip-sync &amp; colour grade</li>
+            <li>2 revision rounds</li>
+          </ul>
+        </div>
+        <div class="ticket-price">
+          <div class="price-amount">₦35,000 – ₦70,000</div>
+          <div class="price-unit">per video</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-main">
+          <p class="tier-name">Campaign / Brand</p>
+          <p class="tier-desc">Multiple linked clips for a full campaign — concept, scripting, delivery across formats.</p>
+          <ul class="tier-includes">
+            <li>Full concept development</li>
+            <li>Multiple clips, one theme</li>
+            <li>All export formats included</li>
+          </ul>
+        </div>
+        <div class="ticket-price">
+          <div class="price-amount">₦100,000+</div>
+          <div class="price-unit">per package</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD ONS -->
+  <div class="section">
+    <div class="section-head"><span class="num">03</span><h2>Extras</h2></div>
+    <p class="lede">Add these to any package above.</p>
+    <table class="addon-table">
+      <tr><td>Extra revision (beyond package limit)</td><td>₦3,000 – ₦8,000</td></tr>
+      <tr><td>Voiceover / dialogue add-on</td><td>₦5,000 – ₦15,000</td></tr>
+      <tr><td>Rush delivery (under 24 hours)</td><td>+30% – 50%</td></tr>
+      <tr><td>Extra format export (TikTok, Reels, Shorts sizing)</td><td>₦2,000 – ₦5,000</td></tr>
+    </table>
+  </div>
+
+  <!-- PLATFORM USE CASE -->
+  <div class="section">
+    <div class="section-head"><span class="num">04</span><h2>By use case</h2></div>
+    <p class="lede">A quick guide if you're not sure which package fits your need.</p>
+    <div class="platform-grid">
+      <div class="pcard">
+        <div class="picon">P</div>
+        <h3>Personal / Status</h3>
+        <div class="prange">₦5k – ₦15k</div>
+      </div>
+      <div class="pcard">
+        <div class="picon">B</div>
+        <h3>Small business ad</h3>
+        <div class="prange">₦20k – ₦50k</div>
+      </div>
+      <div class="pcard">
+        <div class="picon">C</div>
+        <h3>Brand campaign</h3>
+        <div class="prange">₦60k – ₦150k+</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Note:</strong> Prices cover AI generation credits, editing and delivery. A 50% deposit secures your slot; balance is due before final files are sent. Payment via bank transfer.
+    </div>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="section">
+    <div class="section-head"><span class="num">05</span><h2>Terms explained</h2></div>
+    <p class="lede">Plain-language meaning of words used on this rate card.</p>
+    <table class="addon-table">
+      <tr><td>Add-on</td><td style="text-align:left;font-weight:400;color:var(--ink-soft);">Something extra added to your order for extra money — like adding suya to a plate of rice.</td></tr>
+      <tr><td>Lip-sync</td><td style="text-align:left;font-weight:400;color:var(--ink-soft);">Making the mouth in the video match the spoken words, so it looks like the person is really talking.</td></tr>
+      <tr><td>Revision</td><td style="text-align:left;font-weight:400;color:var(--ink-soft);">A change you ask for after seeing the first draft — like asking a tailor to shorten a sleeve.</td></tr>
+      <tr><td>Multi-shot sequence</td><td style="text-align:left;font-weight:400;color:var(--ink-soft);">The video is made of several scenes joined together, instead of one continuous shot.</td></tr>
+      <tr><td>Fast turnaround</td><td style="text-align:left;font-weight:400;color:var(--ink-soft);">How quickly the video is delivered — "fast" means same-day or next-day, not many days later.</td></tr>
+    </table>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Ready to start?</h2>
+    <p>Send your brief on WhatsApp and get a quote within a few hours.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn" href="https://wa.me/2347087129414" target="_blank" rel="noopener">Message on WhatsApp →</a>
+      <a class="btn" style="background:transparent;color:var(--gold-light);border:1px solid rgba(232,199,126,0.5);" href="tel:+2347087129414">Call 070 8712 9414</a>
+    </div>
+    <div class="foot-meta">
+      <span>@qodedstuff</span>
+      <span>qodedstuff.github.io</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
